@@ -10,4 +10,8 @@ class TestsGroup extends Model
     protected $fillable = [
         'category_id', 'name', 'is_deleted',
     ];
+
+    public function tests() {
+        return $this->hasMany('App\Test', 'tests_group_id', 'id');
+    }
 }

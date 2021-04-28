@@ -24,12 +24,18 @@ class HomeController extends Controller
      */
     public function index($categoryId = null)
     {
+        $categories = Category::where('is_deleted', 0)->get();
         if(isset($categoryId)){
-
+            $category = Category::where('id', $categoryId)->where('is_deleted', 0)->first();
+            if(isset($category)){
+                $groups = $category->testsGroups;
+            }else{
+                return redirect()->route('home');
+            }
         }else{
-            $categories = Category::where('is_deleted', 0)->get();
             $firstCategory = $categories->first();
-            return view('home.home', compact('categories', 'firstCategory'));
+            $groups = $firstCategory->testsGroups;
         }
+        return view('home.home', compact('categories', 'groups'));
     }
 }
