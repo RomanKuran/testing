@@ -17,6 +17,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"Ні","b":"Так"}',
             'answers' => '{"answers":["b"]}',
+            'is_deleted' => '0',
         ]);
         DB::table('tests')->insert([
             'tests_group_id' => '1',
@@ -24,6 +25,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"Ні","b":"Так"}',
             'answers' => '{"answers":["a"]}',
+            'is_deleted' => '0',
         ]);
         DB::table('tests')->insert([
             'tests_group_id' => '1',
@@ -31,6 +33,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"більший з кутів, що утворився","b":"менший з кутів, що утворився"}',
             'answers' => '{"answers":["b"]}',
+            'is_deleted' => '0',
         ]);
         DB::table('tests')->insert([
             'tests_group_id' => '1',
@@ -38,6 +41,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"130°","b":"50°","c":"40°","d":"60°","f":"45°","j":"45°"}',
             'answers' => '{"answers":["c"]}',
+            'is_deleted' => '0',
         ]);
         DB::table('tests')->insert([
             'tests_group_id' => '1',
@@ -45,6 +49,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"Ні","b":"Так"}',
             'answers' => '{"answers":["b"]}',
+            'is_deleted' => '0',
         ]);
         DB::table('tests')->insert([
             'tests_group_id' => '1',
@@ -52,6 +57,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"30°","b":"45°","c":"60°","d":"90°","e":"120°"}',
             'answers' => '{"answers":["c"]}',
+            'is_deleted' => '0',
         ]);
 
 
@@ -64,6 +70,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"345","b":"3.45","c":"3,45","d":"Жоден з варіантів вище."}',
             'answers' => '{"answers":["d"]}',
+            'is_deleted' => '0',
         ]);
         DB::table('tests')->insert([
             'tests_group_id' => '3',
@@ -71,6 +78,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"0","b":"2","c":"undefined","d":"true"}',
             'answers' => '{"answers":["b"]}',
+            'is_deleted' => '0',
         ]);
         DB::table('tests')->insert([
             'tests_group_id' => '3',
@@ -78,6 +86,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"null","b":"undefined","c":"object","d":"string"}',
             'answers' => '{"answers":["c"]}',
+            'is_deleted' => '0',
         ]);
         DB::table('tests')->insert([
             'tests_group_id' => '3',
@@ -85,6 +94,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"Так","b":"Ні.","c":"Залежить від локальних налаштувань браузера."}',
             'answers' => '{"answers":["a"]}',
+            'is_deleted' => '0',
         ]);
         DB::table('tests')->insert([
             'tests_group_id' => '3',
@@ -92,6 +102,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"Різниця в значенні, яке повертає такий виклик.","b":"Різниця в значенні i після виклику.","c":"Нема ніякої різниці."}',
             'answers' => '{"answers":["a"]}',
+            'is_deleted' => '0',
         ]);
 
 
@@ -103,6 +114,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"Демультиплексора","b":"Мультиплексора","c":"Компаратора","d":"Дешифратора"}',
             'answers' => '{"answers":["b"]}',
+            'is_deleted' => '0',
         ]);
         DB::table('tests')->insert([
             'tests_group_id' => '4',
@@ -110,6 +122,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"Шифратор","b":"Дешифратор","c":"Мультиплексор","d":"Демультиплексор"}',
             'answers' => '{"answers":["b"]}',
+            'is_deleted' => '0',
         ]);
         DB::table('tests')->insert([
             'tests_group_id' => '4',
@@ -117,6 +130,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"Стан логічної 1.","b":"Така комбінація вхідних сигналів на допускається.","c":"Стан логічного 0."}',
             'answers' => '{"answers":["c"]}',
+            'is_deleted' => '0',
         ]);
         DB::table('tests')->insert([
             'tests_group_id' => '4',
@@ -124,6 +138,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"Ku = Uвх / Івих","b":"Ku = Uвх / Uвих","c":"Ku = Uвих / Uвх"}',
             'answers' => '{"answers":["c"]}',
+            'is_deleted' => '0',
         ]);
         DB::table('tests')->insert([
             'tests_group_id' => '4',
@@ -131,6 +146,7 @@ class TestSeeder extends Seeder
             'type' => 'test',
             'tests' => '{"a":"111","b":"1110","c":"1010"}',
             'answers' => '{"answers":["c"]}',
+            'is_deleted' => '0',
         ]);
     }
 }

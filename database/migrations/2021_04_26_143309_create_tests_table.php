@@ -20,6 +20,7 @@ class CreateTestsTable extends Migration
             $table->string("type")->nullable();
             $table->text("tests")->nullable();
             $table->text("answers")->nullable();
+            $table->boolean("is_deleted")->nullable();
             $table->timestamps();
         });
     }

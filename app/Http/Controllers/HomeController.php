@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,8 +22,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($categoryId = null)
     {
-        return view('home');
+        if(isset($categoryId)){
+
+        }else{
+            $categories = Category::where('is_deleted', 0)->get();
+            $firstCategory = $categories->first();
+            return view('home.home', compact('categories', 'firstCategory'));
+        }
     }
 }

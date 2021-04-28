@@ -13,12 +13,15 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->insert([
             'name' => 'Геометрія',
+            'is_deleted' => '0',
         ]);
         DB::table('categories')->insert([
             'name' => 'Програмування',
+            'is_deleted' => '0',
         ]);
         DB::table('categories')->insert([
             'name' => 'Електроніка',
+            'is_deleted' => '0',
         ]);
     }
 }

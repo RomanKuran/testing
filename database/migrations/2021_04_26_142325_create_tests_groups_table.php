@@ -17,6 +17,7 @@ class CreateTestsGroupsTable extends Migration
             $table->id();
             $table->string('category_id')->references('id')->on('categories');
             $table->string('name');
+            $table->boolean('is_deleted');
             $table->timestamps();
         });
     }
