@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" ></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,6 +21,9 @@
     <link href="{{ asset('css/homeStyles.css') }}" rel="stylesheet">
 </head>
 <body>
+<script>
+    var route_check_user_answers = "{{ route('check_user_answers') }}";
+</script>
     <div id="app">
         @include('home.navbar')
 
@@ -28,5 +31,7 @@
             @yield('content')
         </main>
     </div>
+<script src="{{ asset('js/homeScripts.js') }}"></script>
+
 </body>
 </html>

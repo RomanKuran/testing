@@ -28,13 +28,22 @@ class HomeController extends Controller
         if(isset($categoryId)){
             $category = Category::where('id', $categoryId)->where('is_deleted', 0)->first();
             if(isset($category)){
-                $groups = $category->testsGroups;
+                $groups = $category->testsGroups()->
+                whereHas("tests", function($query) {
+                    $query->selectRaw("count(tests.id) > 0");
+                    $query->select('social_categories.*');
+                })->get();
             }else{
                 return redirect()->route('home');
             }
         }else{
             $firstCategory = $categories->first();
-            $groups = $firstCategory->testsGroups;
+
+            $groups = $firstCategory->testsGroups()->
+                whereHas("tests", function($query) {
+                    $query->selectRaw("count(tests.id) > 0");
+                    $query->select('social_categories.*');
+                })->get();
         }
         return view('home.home', compact('categories', 'groups'));
     }
