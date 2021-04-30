@@ -16,3 +16,12 @@
 .button-send-test-container {
   text-align: center;
 }
+
+.container-answer-test {
+  display: flex;
+  justify-content: center;
+}
+
+.answer-test {
+  color: green;
+}

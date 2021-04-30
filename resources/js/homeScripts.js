@@ -23,7 +23,7 @@ $(document).ready(function() {
                 _token: $('meta[name="csrf-token"]').attr('content')
             },
             success: function (result) {
-
+                alert("Ваш бал: "+result.percentageOfCorrectAnswers+" з 100", "Результат тестування");
             }
         });
     }

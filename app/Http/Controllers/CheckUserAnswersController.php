@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Test;
+use App\UserTestsAnswer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckUserAnswersController extends Controller
 {
@@ -14,9 +16,9 @@ class CheckUserAnswersController extends Controller
         $correctAnswersCounter = 0;
         foreach ($tests as $key => $test){
             $correctAnswers = json_decode($test->answers, true)['answers'];
-            if(isset($userAnswers[++$key])){
+            if(isset($userAnswers[$test->id])){
                 foreach($correctAnswers as $keyCorrectAnswer => $correctAnswer){
-                    if($userAnswers[$key] == $correctAnswer){
+                    if($userAnswers[$test->id] == $correctAnswer){
                         $correctAnswersCounter++;
                     }
                 }
@@ -24,7 +26,16 @@ class CheckUserAnswersController extends Controller
 
         }
         $countAllTests = $tests->count();
-        $percentageOfCorrectAnswers = 100 / $countAllTests * $correctAnswersCounter;
+        $percentageOfCorrectAnswers = round((100 / $countAllTests * $correctAnswersCounter), 1);
+
+        $user = Auth::user();
+
+        $userTestAnswer = new UserTestsAnswer();
+        $userTestAnswer->user_id = $user->id;
+        $userTestAnswer->tests_group_id = $testGroupId;
+        $userTestAnswer->answers = json_encode($userAnswers);
+        $userTestAnswer->percentage = $percentageOfCorrectAnswers;
+        $userTestAnswer->save();
 
         $percentageOfCorrectAnswers=["percentageOfCorrectAnswers"=>$percentageOfCorrectAnswers];
         $percentageOfCorrectAnswers=json_encode($percentageOfCorrectAnswers, JSON_UNESCAPED_UNICODE);

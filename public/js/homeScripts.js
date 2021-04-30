@@ -26,7 +26,9 @@ $(document).ready(function () {
         testGroupId: group_id,
         _token: $('meta[name="csrf-token"]').attr('content')
       },
-      success: function success(result) {}
+      success: function success(result) {
+        alert("Ваш бал: " + result.percentageOfCorrectAnswers + " з 100", "Результат тестування");
+      }
     });
   }
 });

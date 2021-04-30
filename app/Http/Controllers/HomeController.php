@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -31,8 +32,14 @@ class HomeController extends Controller
                 $groups = $category->testsGroups()->
                 whereHas("tests", function($query) {
                     $query->selectRaw("count(tests.id) > 0");
-                    $query->select('social_categories.*');
-                })->get();
+                    $query->select('tests.*');
+                })
+                ->with(["userTestsAnswer" => function($q){
+                    $user = Auth::user();
+                    $q->where('user_tests_answers.user_id', $user->id);
+                    $q->orderBy('percentage', 'desc')->first();
+                }])
+                    ->get();
             }else{
                 return redirect()->route('home');
             }
@@ -42,8 +49,14 @@ class HomeController extends Controller
             $groups = $firstCategory->testsGroups()->
                 whereHas("tests", function($query) {
                     $query->selectRaw("count(tests.id) > 0");
-                    $query->select('social_categories.*');
-                })->get();
+                    $query->select('tests.*');
+                })
+                ->with(["userTestsAnswer" => function($q){
+                    $user = Auth::user();
+                    $q->where('user_tests_answers.user_id', $user->id);
+                    $q->orderBy('percentage', 'desc')->first();
+                }])
+                ->get();
         }
         return view('home.home', compact('categories', 'groups'));
     }
