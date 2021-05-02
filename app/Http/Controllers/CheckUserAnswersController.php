@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Test;
 use App\UserTestsAnswer;
+use App\TestsGroup;
+use App\Mail\ToUser\ResultTest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CheckUserAnswersController extends Controller
 {
@@ -36,6 +39,11 @@ class CheckUserAnswersController extends Controller
         $userTestAnswer->answers = json_encode($userAnswers);
         $userTestAnswer->percentage = $percentageOfCorrectAnswers;
         $userTestAnswer->save();
+
+        $testGroup = TestsGroup::where('id', $testGroupId)->first();
+
+        $mail = new ResultTest($testGroup->name, $percentageOfCorrectAnswers);
+        Mail::to($user->email)->send($mail);
 
         $percentageOfCorrectAnswers=["percentageOfCorrectAnswers"=>$percentageOfCorrectAnswers];
         $percentageOfCorrectAnswers=json_encode($percentageOfCorrectAnswers, JSON_UNESCAPED_UNICODE);
