@@ -19,6 +19,7 @@ class CreateUserTestsAnswersTable extends Migration
             $table->string('tests_group_id')->references('id')->on('tests_groups');
             $table->text("answers")->nullable();
             $table->float("percentage")->nullable();
+            $table->boolean("admin")->default(0);
             $table->timestamps();
         });
     }

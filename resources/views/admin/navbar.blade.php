@@ -10,22 +10,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                @foreach($categories as $key => $category)
-                    <li class="custom-nav-item">
-                        <a href="{{route('tests_groups_from_category_id', ['categoryId' => $category->id])}}">
-                            {{$category->name}}
-                        </a>
-                    </li>
-                @endforeach
-                @if(Auth::check())
-                    @if(Auth::user()->admin)
-                            <li class="custom-nav-item">
-                                <a href="{{route('admin')}}">
-                                    Адмін
-                                </a>
-                            </li>
-                        @endif
-                    @endif
+{{--                @foreach($categories as $key => $category)--}}
+{{--                    <li class="custom-nav-item">--}}
+{{--                        <a href="{{route('tests_groups_from_category_id', ['categoryId' => $category->id])}}">--}}
+{{--                            {{$category->name}}--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                @endforeach--}}
             </ul>
 
             <!-- Right Side Of Navbar -->
