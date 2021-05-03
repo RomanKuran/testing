@@ -6,7 +6,7 @@
     </thead>
     <tbody>
     @foreach($categories as $key => $category)
-        <tr class="{{$category->is_deleted? 'deleted_category' : ''}}" data-category-id="{{$category->id}}">
+        <tr class="{{$category->is_deleted? 'deleted_fields' : ''}}" data-category-id="{{$category->id}}">
             <td data-category-id="{{$category->id}}" data-name-field="id" class="drag">
                 {{ $category->id }}
             </td>

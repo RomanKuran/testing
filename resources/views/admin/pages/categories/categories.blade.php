@@ -13,3 +13,6 @@
     </div>
     @include('admin.pages.categories.modals.modalCreateCategory')
 @endSection
+@push('scripts')
+    <script src="{{ asset('js/admin/categories.js') }}"></script>
+@endpush

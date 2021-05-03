@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class CreateCategoryController extends Controller
 {
-    public function createController(Request $request){
+    public function createCategory(Request $request){
         parse_str($request->data, $formdata);
 
         $newCategory = new Category();

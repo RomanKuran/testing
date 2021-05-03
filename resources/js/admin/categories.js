@@ -36,28 +36,24 @@ $(document).ready(function(e) {
 
 //http://127.0.0.1:8000/admin - function create category
 function createCategory(form_data){
-    // $(".js-result-message").attr('class','js-result-message');
-    // $(".js-result-message").addClass("js-spin-loader");
-    $.when( $(".js-result-message").animate({right: 30}, 500) ).done(function( x ) {
-        $.ajax({
-            type: "POST",
-            url: route_create_category,
-            dataType: 'json',
-            data: {
-                data: form_data,
-                _token: $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function (result) {
-                $('.js-table-categories').replaceWith(result.categories);
-                // $(".js-result-message").addClass("js-success-message");
-                // setTimeout(function(){ $.when( $(".js-result-message").animate({right: -100}, 500) ); }, 1000);
-            },
-            error: function (result) {
-                // $(".js-result-message").addClass("js-error-message");
-                // setTimeout(function(){ $.when( $(".js-result-message").animate({right: -100}, 500) ); }, 1000);
-                alert(result.responseJSON.message);
-            }
-        });
+    $.ajax({
+        type: "POST",
+        url: route_create_category,
+        dataType: 'json',
+        data: {
+            data: form_data,
+            _token: $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function (result) {
+            $('.js-table-categories').replaceWith(result.categories);
+            // $(".js-result-message").addClass("js-success-message");
+            // setTimeout(function(){ $.when( $(".js-result-message").animate({right: -100}, 500) ); }, 1000);
+        },
+        error: function (result) {
+            // $(".js-result-message").addClass("js-error-message");
+            // setTimeout(function(){ $.when( $(".js-result-message").animate({right: -100}, 500) ); }, 1000);
+            alert(result.responseJSON.message);
+        }
     });
 }
 //----
