@@ -28,6 +28,10 @@
             var route_create_tests_group = "{{ route('admin_create_tests_group') }}";
             var route_tests_groups_from_category_id = "{{ route('get_tests_groups_from_category_id') }}";
             var route_edit_tests_group = "{{ route('admin_edit_tests_group') }}";
+
+            var route_categories_from_id = "{{ route('categories_from_id') }}";
+            var route_edit_test = "{{ route('admin_edit_test') }}";
+            var route_create_test = "{{ route('admin_create_test') }}";
         </script>
         <div id="app">
             @include('admin.navbar')

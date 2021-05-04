@@ -15,6 +15,7 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/homeScripts.js', 'public/js')
     .js('resources/js/admin/categories.js', 'public/js/admin')
     .js('resources/js/admin/testsGroups.js', 'public/js/admin')
+    .js('resources/js/admin/tests.js', 'public/js/admin')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/homeStyles.scss', 'public/css')
     .sass('resources/sass/admin/admin.scss', 'public/css/admin');

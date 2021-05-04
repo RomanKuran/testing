@@ -38,7 +38,7 @@ $(document).ready(function (e) {
 function createCategory(form_data) {
   $.ajax({
     type: "POST",
-    url: route_create_category,
+    url: route_create_test,
     dataType: 'json',
     data: {
       data: form_data,

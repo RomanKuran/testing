@@ -10,13 +10,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-{{--                @foreach($categories as $key => $category)--}}
-{{--                    <li class="custom-nav-item">--}}
-{{--                        <a href="{{route('tests_groups_from_category_id', ['categoryId' => $category->id])}}">--}}
-{{--                            {{$category->name}}--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                @endforeach--}}
+                <li class="custom-nav-item">
+                    <a href="{{route('admin')}}">
+                        Категорії
+                    </a>
+                </li>
+                <li class="custom-nav-item">
+                    <a href="{{route('admin_tests_groups')}}">
+                        Групи тестів
+                    </a>
+                </li>
+                <li class="custom-nav-item">
+                    <a href="{{route('admin_tests')}}">
+                        Тести
+                    </a>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->

@@ -18,4 +18,8 @@ class TestsGroup extends Model
     public function userTestsAnswer() {
         return $this->hasMany('App\UserTestsAnswer', 'tests_group_id', 'id');
     }
+
+    public function categories() {
+        return $this->hasMany('App\Category', 'id', 'category_id');
+    }
 }
