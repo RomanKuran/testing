@@ -1,0 +1,23 @@
+.custom-nav-item{
+    margin-left: 10px;
+}
+
+.custom-nav-item a{
+color: rgb(0, 0, 0, 0.9);
+}
+.test-item{
+    border: solid 1px #c6c6c6;
+    border-radius: 4px;
+    margin: 5px 20px;
+    padding: 10px;
+}
+.button-send-test-container{
+    text-align: center;
+}
+.container-answer-test{
+    display: flex;
+    justify-content: center;
+}
+.answer-test{
+    color: green;
+}

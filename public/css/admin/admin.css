@@ -1,0 +1,8 @@
+table.table tr.deleted_fields {
+  background-color: #ffb0b0;
+}
+
+.custom-nav-item a {
+  color: #1b1e21;
+  margin-left: 10px;
+}

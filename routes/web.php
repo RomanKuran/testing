@@ -19,6 +19,9 @@ Route::get('/', 'HomeController@index')->name('home');
 //    return view('welcome');
 //});
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home',                 'HomeController@index')->name('home');
+Route::get('/home/{categoryId}',    'HomeController@index')->name('tests_groups_from_category_id');
+Route::get('/tests/{groupId}',    'TestsController@test')->name('tests');
+Route::post('/check_user_answers',    'CheckUserAnswersController@check')->name('check_user_answers');
